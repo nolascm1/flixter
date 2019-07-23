@@ -12,6 +12,11 @@ class Instructor::CoursesController < ApplicationController
 
     def show
         @course = Course.find(params[:id])
+        if @course.valid?
+            redirect_to instructor_course_path(@course)
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
 
     private
