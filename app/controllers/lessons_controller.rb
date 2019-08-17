@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
     def show
+        before_action :authenticate_user!
     end
 private
 
