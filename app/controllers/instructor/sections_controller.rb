@@ -29,3 +29,4 @@ class Instructor::SectionsController < ApplicationController
         params.require(:section).permit(:title)
     end
 end
+

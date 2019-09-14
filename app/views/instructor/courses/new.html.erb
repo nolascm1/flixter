@@ -9,7 +9,7 @@
     <%= f.submit "Create", class: 'btn btn-primary'%>
     <br />
     <% end %>
-    <%= simple_form_for @current_course, url: instructor_courses_path do |f| %>
+    <%= simple_form_for @course, url: instructor_courses_path do |f| %>
     <%= f.input :image %>
     <br />
     <%= f.submit "Create", class: 'btn btn-primary' %>
