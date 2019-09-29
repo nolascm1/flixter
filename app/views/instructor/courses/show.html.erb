@@ -135,11 +135,9 @@
     </div>
   </div>
 
-
-  <%= simple_form_for @image, url: '#' do |f| %>
-  <%= f.input :message %>
-  <%= f.input :rating %>
-  <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+  <%= simple_form_for @image, url: course_images_path(@course) do |f| %>
+  <%= f.input :image %>
+  <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
 <% end %>
 
 </div>

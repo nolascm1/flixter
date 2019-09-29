@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'privacy', to: 'static_pages#privacy'
     resources :courses, only: [:index, :show] do
       resources :enrollments, only: :create
+      resources :images, only: :create
     end
     resources :lessons, only: [:show]
     namespace :instructor do

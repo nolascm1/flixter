@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_195958) do
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "picture"
+    #t.string "picture"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -51,11 +51,6 @@ ActiveRecord::Schema.define(version: 2019_09_14_195958) do
     t.string "video"
     t.index ["row_order"], name: "index_lessons_on_row_order"
     t.index ["section_id"], name: "index_lessons_on_section_id"
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "sections", force: :cascade do |t|
