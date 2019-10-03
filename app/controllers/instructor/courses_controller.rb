@@ -13,13 +13,16 @@ class Instructor::CoursesController < ApplicationController
          else
             render :new, status: :unprocessable_entity
          end
-         
-    end
 
-    def show
-        @section = Section.new
-        @lesson = Lesson.new
-    end
+         def show
+            @section = Section.new
+            @lesson = Lesson.new
+            @image = Image.new
+            end
+         end
+    
+
+
 
 
     private
@@ -33,7 +36,6 @@ class Instructor::CoursesController < ApplicationController
     helper_method :current_course
     def current_course
         @current_course ||= Course.find(params[:id])
-        @image = Image.new
     end
 
     def course_params

@@ -1,3 +1,3 @@
-class Image < ApplicationRecord::Base
-    mount_uploader :picture, PictureUploader
-end
+class Image < ActiveRecord::Base
+    mount_uploader :image, ImageUploader
+  end

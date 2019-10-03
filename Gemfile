@@ -72,12 +72,13 @@ gem 'simple_form'
 gem 'devise'
 gem "mini_magick"
 gem 'carrierwave', '~> 1.0'
-gem 'carrierwave-aws'
 gem 'stripe'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
 gem "figaro"
 gem 'fog-aws'
+gem 'carrierwave-aws'
+
 
 
 
