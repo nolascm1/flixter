@@ -6,8 +6,8 @@
     <hr />
 
     <% @courses.each do |course| %>
-        <% if course.image && course.image.url %>
-            <%= image_tag course.image.url, class: 'img-fluid' %>
+        <% if course.image && course.image %>
+            <%= image_tag course.image.to_s, class: 'img-fluid' %>
         <% end %> 
         <h2 class="text-center">
         <%= link_to course.title, course_path(course) %>
