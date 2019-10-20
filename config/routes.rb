@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users
-  resource  :dashboard, only: [:show]
-    root 'static_pages#index'
-    get 'privacy', to: 'static_pages#privacy'
-    resources :courses, only: [:index, :show] do
+  resource :dashboard, only: [:show]
+  root 'static_pages#index'
+  get 'privacy', to: 'static_pages#privacy'
+  resources :courses, only: [:index, :show] do
     resources :enrollments, only: :create
-    resources :images, only: :create
-    end
-    resources :lessons, only: [:show]
-    namespace :instructor do
-      resources :courses, only: [:new, :create, :show] 
-    end
-      resources :lessons, only: [:update]
-      resources :sections, only: [:update] do
+  end
+  resources :lessons, only: [:show]
+  namespace :instructor do
+    resources :lessons, only: [:update]
+    resources :sections, only: [:update] do
       resources :lessons, only: [:create]
-      resources :sections, only: [:create]
-      end
     end
+    resources :courses, only: [:new, :create, :show] do
+      resources :sections, only: [:create]
+    end
+  end
+end
 
   #resources :lessons, only: [:show]
   #namespace :instructor do
