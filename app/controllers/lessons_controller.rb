@@ -1,32 +1,22 @@
 class LessonsController < ApplicationController
-        before_action :authenticate_user!
-        before_action :require_authorized_for_current_section
-        
-        def show
-        end
-
-        def new
-            @lesson = Lesson.new
-        end
-
-        def create
-            @lesson = current_section.lessons.create(lesson_params)
-            redirect_to instructor_course_path(current_section.course)
-        end
-private
-        def require_authorized_for_current_section
-            if current_section.course.user != current_user
-                rend plain: 'Unauthorized', status: :unauthorized
-            end
-        end
-
-helper_method :current_lesson
-def current_lesson
-    @current_lesson ||= Lesson.find(params[:id])
-end
-
-def lesson_params
-    params.require(:lesson).permit(:title, :subtitle, :video)
-end
-end
+    before_action :authenticate_user!
+    before_action :require_enrollment_for_current_lesson, only: [:show]
+  
+    def show
+    end
+  
+    private 
+  
+    def require_enrollment_for_current_lesson 
+      if !current_user.enrolled_in?(current_lesson.section.course)
+        redirect_to course_path(current_lesson.section.course), alert: 'Only Enrolled Students Can View Lesson Details'
+      end
+    end
+  
+    helper_method :current_lesson
+    def current_lesson
+      @current_lesson ||= Lesson.find(params[:id])
+    end
+  
+  end
 
