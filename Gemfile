@@ -77,7 +77,7 @@ gem 'jquery-ui-rails'
 gem "figaro"
 gem 'fog-aws'
 gem 'carrierwave-aws'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 
 
